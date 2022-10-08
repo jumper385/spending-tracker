@@ -32,7 +32,7 @@
             let res = await client.records.create('expenses', newDocument)
             console.log(res)
 
-            goto('/')
+            goto('/expenses')
 
         } catch (err) {
             alert(err.message)
