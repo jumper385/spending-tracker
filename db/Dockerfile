@@ -15,4 +15,4 @@ RUN unzip /tmp/pocketbase.zip -d /usr/local/bin/
 RUN chmod +x /usr/local/bin/pocketbase
 
 EXPOSE 8090
-CMD [ "./pocketbase", "serve" ]
+CMD [ "/usr/local/bin/pocketbase", "serve" ]
