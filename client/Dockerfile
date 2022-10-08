@@ -7,4 +7,4 @@ RUN npm install
 RUN npm run build
 
 COPY . .
-CMD ["node","build/index.js"]
+CMD ["node","./build/index.js"]
