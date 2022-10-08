@@ -11,3 +11,5 @@
 <Nav />
 
 <slot />
+
+<style lang="scss" global></style>
