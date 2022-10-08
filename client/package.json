@@ -20,6 +20,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@sveltejs/adapter-node": "^1.0.0-next.96",
 		"pocketbase": "^0.7.1",
 		"sass": "^1.55.0"
 	}
