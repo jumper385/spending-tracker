@@ -47,25 +47,25 @@
 
 <form on:submit|preventDefault={addExpense}>
     <div class="form-row">
-        <label for="name">Purchase Name</label>
-        <input type="text" name="name" id="name" bind:value={formdata.name} required/>
+        <label for="purchase name">Purchase Name</label>
+        <input type="text" name="purchase name" id="purchase-name" bind:value={formdata.name} required/>
     </div>
 
     <div class="form-row">
-        <label for="description">Description</label>
+        <label for="purchase description">Description</label>
         <input
             type="text"
-            name="description"
+            name="purchase description"
             id="description"
             bind:value={formdata.description}
         />
     </div>
 
     <div class="form-row">
-        <label for="date">Date of Purchase</label>
+        <label for="purchase date">Date of Purchase</label>
         <input
             type="date"
-            name="date"
+            name="purchase date"
             id="date"
             bind:value={formdata.purchase_date}
             required
