@@ -1,7 +1,8 @@
 <script>
     import { goto } from '$app/navigation';
+    import { vars } from '$lib/vars';
     import Pocketbase from 'pocketbase'
-    const client = new Pocketbase('http://127.0.0.1:8090')
+    const client = new Pocketbase(vars.dbUrl)
 
     let loading = false;
 
@@ -28,7 +29,9 @@
                 newDocument.append('files', files[i]);
             }
 
-            client.records.create('expenses', newDocument)
+            let res = await client.records.create('expenses', newDocument)
+            console.log(res)
+
             goto('/')
 
         } catch (err) {
@@ -83,7 +86,7 @@
 
     <div class="form-row">
         <label for="files">Files</label>
-        <input type="file" name="files" id="files" bind:files multiple required/>
+        <input type="file" name="files" id="files" bind:files multiple/>
     </div>
 
     <div class="form-row">
