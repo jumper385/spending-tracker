@@ -1,7 +1,8 @@
 <script>
 import Pocketbase from 'pocketbase'
     import FileIcon from '$lib/components/file-icon.svelte';
-    let client = new Pocketbase('http://127.0.0.1:8090')
+    import { vars } from '$lib/vars';
+    let client = new Pocketbase(vars.dbUrl)
 
     const getExpenses = async () => {
         let data = await client.records.getList('expenses', 1, 30, );   
@@ -31,7 +32,7 @@ import Pocketbase from 'pocketbase'
                 <td>${expenseItem.amount}</td>
                 <td>
                     {#each expenseItem.files as file}
-                    <FileIcon link="http://127.0.0.1:8090/api/files/expenses/{expenseItem.id}/{file}"/>
+                    <FileIcon link="{vars.dbUrl}/api/files/expenses/{expenseItem.id}/{file}"/>
                     {/each}
                 </td>
             </tr>

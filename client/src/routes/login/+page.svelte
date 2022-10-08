@@ -1,8 +1,9 @@
 <script>
     import { goto } from '$app/navigation';
+    import { vars } from '$lib/vars';
     import Pocketbase from 'pocketbase'
 
-    let client = new Pocketbase('http://127.0.0.1:8090');
+    let client = new Pocketbase(vars.dbUrl);
 
     let formdata = {
         email: "", 
