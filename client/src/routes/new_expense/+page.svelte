@@ -93,7 +93,3 @@
         <input type="submit" value="Submit" disabled={loading}/>
     </div>
 </form>
-
-<pre>
-    {JSON.stringify(formdata, null, 2)}
-</pre>
