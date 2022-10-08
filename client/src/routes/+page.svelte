@@ -14,6 +14,5 @@
 <h1>Dolly</h1>
 <p>A simple Expenses Tracker</p>
 
-{#if gif}
-    <img src={gif} alt="a cute money gif" />
-{/if}
+<img src={gif} alt="a cute money gif" />
+
