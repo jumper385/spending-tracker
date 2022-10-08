@@ -1,51 +1,19 @@
 <script>
-import Pocketbase from 'pocketbase'
-    import FileIcon from '$lib/components/file-icon.svelte';
-    import { vars } from '$lib/vars';
-    import { goto } from '$app/navigation';
-    let client = new Pocketbase(vars.dbUrl)
+    const randomGif = () => {
+        let gifs = ["UZ8rFjJvlfGrm", "12pJ8OxSWwO86Y", "67ThRZlYBvibtdF9JH", "K0fCYZRbETczFWydo0"];
+        let randomIndex = Math.floor(Math.random() * gifs.length);
+        let gifid = gifs[randomIndex];
 
-    const getExpenses = async () => {
+        let gifOut = `https://i.giphy.com/media/${gifid}/giphy.webp`;
 
-        if (!client.authStore.token){
-            goto('/login')
-        }
-
-        let data = await client.records.getList('expenses', 1, 30, );   
-        return data
-    }
+        return gifOut;
+    };
+    let gif = randomGif();
 </script>
 
-<h1>Expenses</h1>
-<p><a href="/new_expense">+ Add Expense</a></p>
+<h1>Dolly</h1>
+<p>A simple Expenses Tracker</p>
 
-{#await getExpenses()}
-    Loading...
-{:then {items}}
-    {#if items.length > 0}
-    <table>
-        <thead>
-            <th>Purchase Date</th>
-            <th>Name</th>
-            <th>Amount</th>
-            <th>Supporting Material</th>
-        </thead>
-        <tbody>
-            {#each items as expenseItem}
-            <tr>
-                <td>{(new Date(expenseItem.purchase_date)).toLocaleDateString()}</td>
-                <td>{expenseItem.name}</td>
-                <td>${expenseItem.amount}</td>
-                <td>
-                    {#each expenseItem.files as file}
-                    <FileIcon link="{vars.dbUrl}/api/files/expenses/{expenseItem.id}/{file}"/>
-                    {/each}
-                </td>
-            </tr>
-            {/each}
-        </tbody>
-    </table>
-    {:else}
-    No Expenses to report...
-    {/if}
-{/await}
+{#if gif}
+    <img src={gif} alt="a cute money gif" />
+{/if}

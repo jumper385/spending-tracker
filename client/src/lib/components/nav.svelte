@@ -11,6 +11,7 @@
 <nav>
     <a href="/">Home</a>
     {#if client.authStore.token}
+    <a href="/expenses">Expenses</a>
     <a href="/logout" on:click|preventDefault={logout}>Logout</a>
     {:else}
     <a href="/login">Login</a>
