@@ -3,4 +3,4 @@ services:
   client:
     build: /client
   ports:
-    - "5789:3000"
+    - 5789:3000
