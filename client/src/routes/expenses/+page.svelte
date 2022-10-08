@@ -11,7 +11,9 @@
                 goto('/login')
             }
     
-            let data = await client.records.getList('expenses', 1, 30, );   
+            let data = await client.records.getList('expenses', 1, 30, {
+                sort: '-purchase_date'
+            });   
             return data
         }
     </script>
