@@ -1,0 +1,35 @@
+form {
+    br {
+        height:36pt;
+    }
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 3pt;
+    margin: 12pt 0;
+
+    label {
+        text-transform: uppercase;
+
+    }
+
+    input, select{
+        height:32pt;
+        padding:3pt; 
+        box-sizing: border-box;
+    }
+}
+
+table {
+    border-collapse: collapse;
+    text-align: left;
+    th, td {
+        padding: 6pt 24pt; 
+        box-sizing: border-box;
+    }
+    thead {
+        background:rgba(0,0,0,.05);
+    }
+}
