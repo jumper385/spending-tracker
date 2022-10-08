@@ -7,4 +7,4 @@ services:
   db: 
     build: ./db
     ports:
-      - "4543:8090"
+      - "8090"
