@@ -2,9 +2,15 @@
 import Pocketbase from 'pocketbase'
     import FileIcon from '$lib/components/file-icon.svelte';
     import { vars } from '$lib/vars';
+    import { goto } from '$app/navigation';
     let client = new Pocketbase(vars.dbUrl)
 
     const getExpenses = async () => {
+
+        if (!client.authStore.token){
+            goto('/login')
+        }
+
         let data = await client.records.getList('expenses', 1, 30, );   
         return data
     }
