@@ -31,6 +31,7 @@
                 <th>Name</th>
                 <th>Amount</th>
                 <th>Supporting Material</th>
+                <th>Incoming/Outgoing</th>
             </thead>
             <tbody>
                 {#each items as expenseItem}
@@ -48,6 +49,9 @@
                                     link="{vars.dbUrl}/api/files/expenses/{expenseItem.id}/{file}"
                                 />
                             {/each}
+                        </td>
+                        <td>
+                            {expenseItem.isIncome ? "Incoming" : "Outgoing"}
                         </td>
                     </tr>
                 {/each}
