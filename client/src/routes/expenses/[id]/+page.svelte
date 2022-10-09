@@ -83,7 +83,3 @@
         deleteFile={queueFileDelete}
     />
 {/await}
-
-<pre>
-    <pre>{JSON.stringify(formdata, null, 2)}</pre>
-</pre>
