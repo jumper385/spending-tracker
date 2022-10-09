@@ -58,8 +58,10 @@
 
         {#if formdata?.files?.length > 0}
             {#each formdata?.files as file}
-                <div>
-                    <p>{file}</p>
+                <div class='file-list-entry'>
+                    <div class='details'>
+                        <p class='.filename'>{file}</p>
+                    </div>
                     <button on:click|preventDefault ={()=> deleteFile(file)}>Delete</button>
                 </div>
             {/each}

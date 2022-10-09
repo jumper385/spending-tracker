@@ -12,7 +12,6 @@ form {
 
     label {
         text-transform: uppercase;
-
     }
 
     input, select{
@@ -21,8 +20,21 @@ form {
         box-sizing: border-box;
     }
 
-    .queued {
-        text-decoration: line-through;
+    .file-list-entry {
+        width:100vw;
+        display:grid;
+        grid-template-columns: 5fr 1fr;
+        gap:12pt;
+
+        .details {
+            max-width: 100%;
+            overflow:hidden;
+            .filename {
+                width:100%pt;
+                overflow:hidden;
+                text-overflow: ellipsis;
+            }
+        }
     }
 }
 
@@ -35,6 +47,11 @@ table {
     }
     thead {
         background:rgba(0,0,0,.05);
+    }
+
+    td.filecolumn {
+        display:grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     }
 }
 

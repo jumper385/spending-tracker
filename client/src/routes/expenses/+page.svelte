@@ -42,7 +42,7 @@
                         >
                         <td><a href="expenses/{expenseItem.id}">{expenseItem.name}</a></td>
                         <td>${expenseItem.amount}</td>
-                        <td>
+                        <td class="filecolumn">
                             {#each expenseItem.files as file}
                                 <FileIcon
                                     link="{vars.dbUrl}/api/files/expenses/{expenseItem.id}/{file}"
