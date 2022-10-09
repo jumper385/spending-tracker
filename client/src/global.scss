@@ -20,6 +20,10 @@ form {
         padding:3pt; 
         box-sizing: border-box;
     }
+
+    .queued {
+        text-decoration: line-through;
+    }
 }
 
 table {

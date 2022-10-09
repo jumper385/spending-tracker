@@ -4,8 +4,6 @@
     let computeIcon = () => {
         let filetype = link.split('.')[link.split('.').length-1];
 
-        console.log(link.split('.')[link.split('.').length-1])
-
         let out = 'fa-file';
 
         switch (filetype) {
