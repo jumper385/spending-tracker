@@ -71,17 +71,10 @@ nav {
     }
 }
 
-form {
-    br {
-        height:36pt;
-    }
-}
-
 .form-row {
     display: flex;
     flex-direction: column;
-    gap: 3pt;
-    margin: 12pt 0;
+    gap: 24pt;
 
     label {
         text-transform: uppercase;
@@ -94,20 +87,9 @@ form {
     }
 
     .file-list-entry {
-        width:100vw;
-        display:grid;
-        grid-template-columns: 5fr 1fr;
-        gap:12pt;
-
-        .details {
-            max-width: 100%;
-            overflow:hidden;
-            .filename {
-                width:100%pt;
-                overflow:hidden;
-                text-overflow: ellipsis;
-            }
-        }
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
     }
 }
 
@@ -189,7 +171,12 @@ img {
 form {
     display:flex;
     flex-direction: column;
-    gap: 6pt;
+    gap: 24pt;
+
+    br {
+        height:36pt;
+    }
+    
 }
 .form-row {
     display: flex;

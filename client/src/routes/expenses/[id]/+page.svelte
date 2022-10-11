@@ -53,17 +53,23 @@
     };
 
     const queueFileDelete = async (file) => {
-        let filedelete = await client.records.update("expenses", formdata.id, {
-            [`files.${file}`]: null,
-        });
-        invalidateAll()
+       if (confirm(`Are you sure you want to delete ${file} from ${formdata.name}`)) {
+            let filedelete = await client.records.update("expenses", formdata.id, {
+                [`files.${file}`]: null,
+            });
+            invalidateAll()
+       }
     };
 
     const deleteEntry = async () => {
         try {
-            let res = await client.records.delete('expenses', formdata.id)
-            console.log(res)
-            goto('/expenses')
+
+            if(confirm(`Are you sure you want to delete ${formdata.name}`)) {
+                let res = await client.records.delete('expenses', formdata.id)
+                console.log(res)
+                goto('/expenses')
+            }
+
         } catch (err) {
             alert(err.message)
         }

@@ -72,7 +72,7 @@
                 {#each formdata?.files as file}
                     <div class="file-list-entry">
                         <div class="details">
-                            <p class=".filename">{file}</p>
+                            <a class="filename" href="http://digism.xyz:8090/api/files/expenses/{formdata.id}/{file}">{file}</a>
                         </div>
                         <button on:click|preventDefault={() => deleteFile(file)}
                             >Delete</button
