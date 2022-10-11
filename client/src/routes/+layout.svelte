@@ -17,8 +17,11 @@
 
 </svelte:head>
 
-<Nav />
-
-<slot />
+<div class="body">
+    <Nav />
+    <div class="page">
+        <slot />
+    </div>
+</div>
 
 <style lang="scss" global></style>

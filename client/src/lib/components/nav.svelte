@@ -9,11 +9,17 @@
 </script>
 
 <nav>
-    <a href="/">Home</a>
-    {#if client.authStore.token}
-    <a href="/expenses">Expenses</a>
-    <a href="/logout" on:click|preventDefault={logout}>Logout</a>
-    {:else}
-    <a href="/login">Login</a>
-    {/if}
+    <div>
+        <a href="/">Home</a>
+        {#if client.authStore.token}
+        <a href="/expenses">Expenses</a>
+        {/if}
+    </div>
+    <div>
+        {#if client.authStore.token}
+        <a href="/logout" on:click|preventDefault={logout}>Logout</a>
+        {:else}
+        <a href="/login">Login</a>
+        {/if}
+    </div>
 </nav>

@@ -3,6 +3,7 @@
     import FileIcon from "$lib/components/file-icon.svelte";
     import { vars } from "$lib/vars";
     import { goto } from "$app/navigation";
+    import ExpenseEntry from "$lib/components/expense-entry.svelte";
     let client = new Pocketbase(vars.dbUrl);
 
     const getExpenses = async () => {
@@ -18,8 +19,9 @@
     
 </script>
 
-<h1>Expenses</h1>
-<p><a href="expenses/new_expense">+ Add Expense</a></p>
+
+<h2 class="page-title">Incoming / Outgoing Records</h2>
+<a class="btn" href="expenses/new_expense">+ Add Expense</a>
 
 {#await getExpenses()}
     Loading...
@@ -27,32 +29,24 @@
     {#if items.length > 0}
         <table>
             <thead>
-                <th>Purchase Date</th>
-                <th>Name</th>
-                <th>Amount</th>
-                <th>Supporting Material</th>
-                <th>Incoming/Outgoing</th>
+                <th class="left">Record</th>
+                <th class="center">Status</th>
+                <th class="right">Amount</th>
             </thead>
             <tbody>
                 {#each items as expenseItem}
                     <tr>
-                        <td
-                            >{new Date(
-                                expenseItem.purchase_date
-                            ).toLocaleDateString()}</td
-                        >
-                        <td><a href="expenses/{expenseItem.id}">{expenseItem.name}</a></td>
-                        <td>${expenseItem.amount}</td>
-                        <td class="filecolumn">
-                            {#each expenseItem.files as file}
-                                <FileIcon
-                                    link="{vars.dbUrl}/api/files/expenses/{expenseItem.id}/{file}"
-                                />
-                            {/each}
-                        </td>
                         <td>
-                            {expenseItem.isIncome ? "Incoming" : "Outgoing"}
+                            <a href="/expenses/{expenseItem.id}">
+                                <div class="record-item">
+                                    <p class='name'>{expenseItem.name}</p>
+                                    <p class='description'>{expenseItem.description}</p>
+                                    <p class='date'>{(new Date(expenseItem.purchase_date)).toLocaleDateString()}</p>
+                                </div>
+                            </a>
                         </td>
+                        <td class="center"><p class="tablet">{expenseItem.isIncome ? "Income" : "Expense"}</p></td>
+                        <td class="right"><p>${expenseItem.amount}</p></td>
                     </tr>
                 {/each}
             </tbody>
@@ -61,3 +55,4 @@
         No Expenses to report...
     {/if}
 {/await}
+
