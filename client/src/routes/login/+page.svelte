@@ -26,15 +26,19 @@
 
 <form on:submit|preventDefault={login}>
     <div class="form-row">
-        <label for="E-Mail">E-Mail</label>
-        <input type="email" name="email" id="email" bind:value={formdata.email}>
+        <div class="form-entry">
+            <label for="E-Mail">E-Mail</label>
+            <input type="email" name="email" id="email" bind:value={formdata.email}>
+        </div>
     </div>
     <div class="form-row">
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" bind:value={formdata.password}>
+        <div class="form-entry">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" bind:value={formdata.password}>
+        </div>
     </div>
     <div class="form-row">
-        <input type="submit" value="Login">
+        <input class="btn" type="submit" value="Login">
     </div>
 </form>
 

@@ -79,7 +79,7 @@
 {#await getEntry(data)}
     Loading...
 {:then _}
-    <button on:click={deleteEntry}>Delete Entry</button>
+    <button class="btn secondary" on:click={deleteEntry}>Delete Entry</button>
 
     <ExpenseEntry
         bind:files

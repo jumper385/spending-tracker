@@ -20,19 +20,20 @@ html {
     background-color: #ECF0F1;
 }
 
-.body{
+.body {
     display: flex;
     flex-direction: column;
     gap: 24pt;
-    padding:24pt;
+    padding: 24pt;
 
     @include mobile {
-        padding:3pt;
+        padding: 3pt;
+        gap: 12pt;
     }
 }
 
 nav {
-    height:52pt;
+    height: 52pt;
     display: flex;
     align-items: center;
     background-color: white;
@@ -43,31 +44,34 @@ nav {
     a {
         font-weight: bold;
         text-decoration: none;
-        color:black;
+        color: black;
+        margin: 0;
+        padding: 0;
     }
 
     @include mobile {
-        padding:16pt;
+        padding: 0 12pt
     }
 }
 
 .page {
-    width:100%;
+    width: 100%;
     box-sizing: border-box;
-    background:white;
+    background: white;
     border-radius: 12pt;
     padding: 32pt;
-    margin:0 auto;
-    display:flex;
+    margin: 0 auto;
+    display: flex;
     flex-direction: column;
     gap: 24pt;
-    .page-title{
+
+    .page-title {
         font-weight: 500;
         text-align: center;
     }
 
     @include mobile {
-        padding:16pt
+        padding: 16pt
     }
 }
 
@@ -80,69 +84,84 @@ nav {
         text-transform: uppercase;
     }
 
-    input, select{
-        height:32pt;
-        padding:3pt; 
+    input,
+    select {
+        height: 32pt;
+        padding: 3pt;
         box-sizing: border-box;
-    }
-
-    .file-list-entry {
-       display: flex;
-       justify-content: space-between;
-       align-items: center;
     }
 }
 
 table {
-    width:100%;
+    width: 100%;
     box-sizing: border-box;
     border-spacing: 0 24pt;
-    tbody, thead {
-        margin:0;
+
+    tbody,
+    thead {
+        margin: 0;
     }
+
     th {
         color: #A2A2A2;
     }
-    .record-item{
+
+    .record-item {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         gap: 6pt;
-        .name, .description, .date, p{
-            margin:0; padding:0;
+
+        .name,
+        .description,
+        .date,
+        p {
+            margin: 0;
+            padding: 0;
         }
+
         .name {
             font-weight: bold;
-            color:black;
+            color: black;
         }
-        .description, .date {
-            color:#A1A1A1;
-            font-size:9pt;
+
+        .description,
+        .date {
+            color: #A1A1A1;
+            font-size: 9pt;
         }
     }
+
     .left {
         text-align: left;
     }
+
     .center {
         text-align: center;
     }
+
     .right {
         text-align: right;
     }
-    p, a, h3, h2 {
-        text-decoration: none;;
+
+    p,
+    a,
+    h3,
+    h2 {
+        text-decoration: none;
+        ;
     }
 }
 
 img {
-    width:100%;
+    width: 100%;
     height: auto;
     max-width: 600px;
 }
 
 .tablet {
-    height:24pt;
-    display:flex;
+    height: 24pt;
+    display: flex;
     background-color: #DEF7E9;
     color: #77E2A4;
     box-sizing: border-box;
@@ -151,11 +170,11 @@ img {
     border-radius: 12pt;
     padding: 0 16pt;
     font-weight: bold;
-    font-size:9pt;
+    font-size: 9pt;
 }
 
 .btn {
-    background:black;
+    background: black;
     width: 100%;
     min-height: 52pt;
     border-radius: 3pt;
@@ -164,49 +183,79 @@ img {
     justify-content: center;
     font-weight: bold;
     text-decoration: none;
-    color:white;
-    padding:0; margin:0;
+    color: white;
+    padding: 0;
+    margin: 0;
     border: none;
+    &.secondary {
+        background:white;
+        color:black;
+        outline: 2pt solid black;
+    }
 }
+
 form {
-    display:flex;
+    display: flex;
     flex-direction: column;
     gap: 24pt;
 
     br {
-        height:36pt;
+        height: 36pt;
     }
-    
+
 }
+
 .form-row {
     display: flex;
     flex-direction: row;
     gap: 24pt;
     justify-content: center;
+
     .form-entry {
         width: 100%;
-        display:flex;
+        display: flex;
         flex-direction: column;
         gap: 3pt;
         background-color: #ECF0F1;
         border-radius: 3pt;
-        padding:12pt;
+        padding: 12pt;
         box-sizing: border-box;
+
+        .file-list-entry {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .filename {
+                text-decoration: none;
+                color: rgb(54, 70, 254);
+                p {
+                    padding:0;
+                    margin:0;
+                    width:150pt;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+
         label {
             font-size: 9pt;
             font-weight: 600;
             color: #A1A1A1;
         }
+
         input {
-            width: 100%;;
+            width: 100%;
+            ;
             border: none;
             background: none;
             font-size: 12pt;
             font-family: 'Open Sans', sans-serif;
             font-weight: 500;
             height: fit-content;
-            padding:0;
-            margin:0;
+            padding: 0;
+            margin: 0;
 
             &:focus {
                 outline: none
